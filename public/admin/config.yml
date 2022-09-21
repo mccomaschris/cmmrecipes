@@ -8,14 +8,14 @@ public_folder: '/images/uploads'
 collections: # A list of collections the CMS should be able to edit
   - name: 'recipe' # Used in routes, ie.: /admin/collections/:slug/edit
     label: 'Recipe' # Used in the UI, ie.: "New Post"
-    folder: 'src/pages/recipe' # The path to the folder where the documents are stored
+    folder: 'src/pages/recipes' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: "Layout", name: "layout", widget: "hidden", default: "$/layouts/Layout.astro" }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'markdown' }
       - { label: 'Notes', name: 'notes', widget: 'markdown' }
-      - { label: 'Tags', name: 'tags', widget: 'list', allow_add: true }
+      - { label: 'Tags', name: 'tags', widget: 'list', field: { label: 'Tag', name: 'tag', widget: 'string' } }
       - { label: 'Ingredients', name: 'ingredients', widget: 'list', field: { label: 'Ingredient', name: 'ingredients', widget: 'string' } }
-      - { label: 'instructions', name: 'instructions', widget: 'list', allow_add: true }
+      - { label: 'instructions', name: 'instructions', widget: 'list', field: { label: 'Instruction', name: 'instruction', widget: 'string' } }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
