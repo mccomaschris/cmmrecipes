@@ -1,6 +1,6 @@
 ---
-layout: $/layouts/Layout.astro
-title: " Twice Baked Potatoes"
+layout: ../../layouts/RecipeLayout.astro
+title: "Twice Baked Potatoes"
 description: Test
 notes: Test
 tags:

@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import RecipeCard from '../components/RecipeCard.astro';
 import Pill from '../components/Pill.astro';
+
+const recipes = await Astro.glob('../pages/recipes/*.md');
 ---
 
 <Layout title="CMMCooks">
@@ -30,10 +32,13 @@ import Pill from '../components/Pill.astro';
 		<h2 class="scroll-mt-24">Recipes</h2>
 
 		<div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8">
-			<RecipeCard
-				href="https://docs.astro.build/"
-				title="Beef"
-			/>
+			{recipes.slice(0, 20).map((recipe) => (
+				<RecipeCard
+					href={recipe.url}
+					title={recipe.frontmatter.title}
+				/>
+			))}
+
 		</div>
 	</main>
 </Layout>
