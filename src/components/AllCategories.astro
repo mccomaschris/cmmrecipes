@@ -18,7 +18,7 @@ console.log(allTagsData);
 <div class="flex flex-wrap gap-x-2 gap-y-1">
 	{allTagsData.map(tag => (
 		<Pill
-			href={tag.slug}
+			href={`/recipes/tags/${tag.slug}`}
 			title={tag.name}
 		/>
 	  ))}
