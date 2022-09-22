@@ -1,0 +1,25 @@
+---
+import {generateTagData} from '../utils/helpers.js'
+import Pill from '../components/Pill.astro';
+
+const allRecipes = await Astro.glob('../pages/recipes/*.md');
+
+const allTagsUnique = new Set();
+
+allRecipes.forEach(recipe => {
+  recipe.frontmatter.tags && recipe.frontmatter.tags.map(recipe => {
+    allTagsUnique.add(recipe);
+  })
+})
+
+const allTagsData = generateTagData(allTagsUnique);
+console.log(allTagsData);
+---
+<div class="flex flex-wrap gap-x-2 gap-y-1">
+	{allTagsData.map(tag => (
+		<Pill
+			href={tag.slug}
+			title={tag.name}
+		/>
+	  ))}
+</div>

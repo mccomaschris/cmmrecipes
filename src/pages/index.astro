@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import RecipeCard from '../components/RecipeCard.astro';
-import Pill from '../components/Pill.astro';
+import AllCategories from '../components/AllCategories.astro';
 
 const recipes = await Astro.glob('../pages/recipes/*.md');
 ---
@@ -15,17 +15,7 @@ const recipes = await Astro.glob('../pages/recipes/*.md');
 
 	<div>
 		<h2 class="scroll-mt-24" id="categories">Categories</h2>
-
-		<div class="flex flex-wrap gap-x-2 gap-y-1">
-			<Pill
-				href="#"
-				title="Soup"
-			/>
-			<Pill
-				href="#"
-				title="Beef"
-			/>
-		</div>
+		<AllCategories />
 	</div>
 
 	<main>
