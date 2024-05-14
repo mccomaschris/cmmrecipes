@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import RecipeCard from '../components/RecipeCard.astro';
 import AllCategories from '../components/AllCategories.astro';
 
-const recipes = await Astro.glob('../pages/recipes/*.md');
+// const recipes = await Astro.glob('../pages/recipes/*.md');
+const res = await fetch("http://recipes.test/wp-json/wp/v2/recipe");
+const recipes = await res.json();
 ---
 
 <Layout title="CMMCooks">
@@ -24,8 +26,8 @@ const recipes = await Astro.glob('../pages/recipes/*.md');
 		<div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8">
 			{recipes.slice(0, 20).map((recipe) => (
 				<RecipeCard
-					href={recipe.url}
-					title={recipe.frontmatter.title}
+					href={`/recipes/${recipe.slug}/`}
+					title={recipe.title.rendered}
 				/>
 			))}
 

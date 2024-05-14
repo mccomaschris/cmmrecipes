@@ -1,19 +1,10 @@
 ---
-const { href, title, image } = Astro.props;
-const altTag = `Photo of ${title}`;
+const { href, title } = Astro.props;
 ---
 <div class="h-full border border-stone-300 rounded flex flex-col bg-stone-50 shadow-sm transition-all duration-200 ease-out hover:shadow-lg">
-	{image
-        ? <div class="bg-stone-700 h-48 flex items-center justify-center font-semibold text-stone-200">
-			<img src={image} class={altTag} />
-		  </div>
-        : <div class="bg-stone-700 h-48 flex items-center justify-center font-semibold text-stone-200">No image available.</div>
-      }
 	<div class="flex flex-col px-6 py-6">
 		<a href={href} class="text-xl hover:text-green-700 hover:no-underline transition-all duration-100 ease-out">
 			{title}
 		</a>
-
-		<div class="my-2 flex-1"></div>
 	</div>
 </div>
